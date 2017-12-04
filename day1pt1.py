@@ -1,7 +1,13 @@
 data = input("Input your string: ")
-print(data);
+print(data)
 
-x=1
-if x == 1:
-	#printin like a champ
-	print("x is 1.")
+sum = 0
+prevNum = -1
+
+for n in data:
+	if n == prevNum:
+		sum += int(n)
+	prevNum = n
+
+print("This is your sum: ")
+print(sum)
