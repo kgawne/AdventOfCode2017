@@ -12,14 +12,46 @@ def TestCompare( case, expected, result):
 
 def CalcSteps(squareNum):
 	#generate blocks up to square number
+	n = 0
+	d = 1
+	x, y = 0
+	coord = [0,0]
+	foundNum = False
 
+	while not foundNum:
+
+		if n ==squareNum:
+			break;
+		dif = d/d
+
+		for _ in range(abs(d)):
+			print("Shift x by 1: " + str(coord))
+			coord.x += dif
+			++n
+			if n == squareNum:
+				foundNum = true
+				break
+
+		if(not foundNum	):
+			for _ in range(abs(d)):
+				print("Shift y by 1: " + str(coord))
+				coord.y += dif
+				++n
+				if n == squareNum:
+					foundNum = True
+					break
+
+		if d > 0:
+			d += 1
+			d *= -1
+		else:
+			d *= -1
+			d += 1	
+
+	print("Found coordinates: "+str(squareNum) + " is at " + str(coord))
 
 	#Calculate abs difference of cartesian coordinates
-
-
-
-
-	numSteps = 0
+	numSteps = abs(coord.x) + abs(coord.y)
 	return numSteps;
 
 #Test Cases
